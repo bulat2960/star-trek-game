@@ -14,8 +14,6 @@ private:
 public:
     Player();
 
-    //QRectF boundingRect() const override;
-
     QPoint calculateNextPosition(QPoint startPosition, QPoint endPosition);
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;

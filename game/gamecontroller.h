@@ -1,7 +1,7 @@
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
-#include "galaxy.h"
+#include "objects/galaxy.h"
 
 class GameController : public QObject
 {

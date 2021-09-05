@@ -5,7 +5,7 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QKeyEvent>
 
-#include "player.h"
+#include "objects/player.h"
 
 class Scene : public QGraphicsScene
 {

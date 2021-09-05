@@ -13,23 +13,29 @@ Blackhole::Blackhole()
     this->size = starSize;
 
     image = QImage(":/images/blackhole.png");
-    image = image.scaled(starSize * 2, starSize * 2, Qt::IgnoreAspectRatio);
+    image = image.scaled(starSize, starSize, Qt::IgnoreAspectRatio);
+    image = image.convertToFormat(QImage::Format_ARGB32);
 
-    for (int i = 0; i < starSize * 2; i++)
+    for (int i = 0; i < starSize; i++)
     {
-        for (int j = 0; j < starSize * 2; j++)
+        for (int j = 0; j < starSize; j++)
         {
             QColor pixelColor = image.pixelColor(i, j);
 
             if (pixelColor.alpha() != 0)
             {
-                int dx = starSize - i;
-                int dy = starSize - j;
+                int radius = starSize / 2;
+                int dx = radius - i;
+                int dy = radius - j;
                 int distance = sqrt(dx * dx + dy * dy);
 
-                if (distance <= starSize + 1)
+                if (distance <= radius)
                 {
-                    pixelColor.setAlpha(255 * (1 - distance * 1.0 / starSize));
+                    pixelColor.setAlpha(255 * (1 - distance * 1.0 / radius));
+                }
+                else
+                {
+                    pixelColor.setAlpha(0);
                 }
             }
             image.setPixelColor(i, j, pixelColor);

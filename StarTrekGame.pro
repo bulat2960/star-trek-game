@@ -9,35 +9,33 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    blackhole.cpp \
-    galaxy.cpp \
-    gamecontroller.cpp \
+    game/gamecontroller.cpp \
     gamesettings.cpp \
-    guicontroller.cpp \
+    gui/mainwindow.cpp \
+    gui/scene.cpp \
+    gui/view.cpp \
     main.cpp \
-    mainwindow.cpp \
-    object.cpp \
-    player.cpp \
-    quadrant.cpp \
-    scene.cpp \
-    star.cpp \
-    view.cpp \
-    wormhole.cpp
+    objects/blackhole.cpp \
+    objects/galaxy.cpp \
+    objects/object.cpp \
+    objects/player.cpp \
+    objects/quadrant.cpp \
+    objects/star.cpp \
+    objects/wormhole.cpp
 
 HEADERS += \
-    blackhole.h \
-    galaxy.h \
-    gamecontroller.h \
+    game/gamecontroller.h \
     gamesettings.h \
-    guicontroller.h \
-    mainwindow.h \
-    object.h \
-    player.h \
-    quadrant.h \
-    scene.h \
-    star.h \
-    view.h \
-    wormhole.h
+    gui/mainwindow.h \
+    gui/scene.h \
+    gui/view.h \
+    objects/blackhole.h \
+    objects/galaxy.h \
+    objects/object.h \
+    objects/player.h \
+    objects/quadrant.h \
+    objects/star.h \
+    objects/wormhole.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -46,3 +44,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES +=

@@ -1,17 +1,18 @@
 #include <QApplication>
 #include <QScreen>
 
-#include "view.h"
-#include "scene.h"
-#include "quadrant.h"
 #include "gamesettings.h"
-#include "mainwindow.h"
-#include "gamecontroller.h"
-#include "guicontroller.h"
-#include "player.h"
-#include "blackhole.h"
 
-#include <QDebug>
+#include "gui/mainwindow.h"
+#include "gui/scene.h"
+#include "gui/view.h"
+
+#include "objects/galaxy.h"
+#include "objects/quadrant.h"
+#include "objects/player.h"
+#include "objects/blackhole.h"
+
+#include "game/gamecontroller.h"
 
 int main(int argc, char *argv[])
 {
@@ -34,11 +35,6 @@ int main(int argc, char *argv[])
     view->setGeometry(mainWindow->geometry());
 
     scene->setParent(view);
-
-    GuiController* guiController = new GuiController;
-    guiController->setScene(scene);
-    guiController->setView(view);
-    guiController->setMainWindow(mainWindow);
 
     Galaxy* galaxy = new Galaxy;
 
@@ -69,7 +65,7 @@ int main(int argc, char *argv[])
 
     GameController* gameController = new GameController(galaxy);
 
-    guiController->start();
+    mainWindow->showFullScreen();
 
     return a.exec();
 }
